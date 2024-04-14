@@ -1,6 +1,5 @@
 import type { MDXComponents } from "mdx/types";
 import { Code } from "bright";
-
 import Link from "next/link";
 import Image from "next/image";
 

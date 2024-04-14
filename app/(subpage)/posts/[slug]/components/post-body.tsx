@@ -1,5 +1,4 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-
 import { mdxComponents } from "./markdown-components";
 
 import "github-markdown-css";

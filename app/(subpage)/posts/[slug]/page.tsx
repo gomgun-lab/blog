@@ -1,6 +1,8 @@
 import { getPost } from "@/lib/post";
 import { PostBody } from "./components/post-body";
 import { notFound } from "next/navigation";
+import { PostHeader } from "./components/post-header";
+import { PostFooter } from "./components/post-footer";
 
 export default async function Page({
   params,
@@ -13,5 +15,11 @@ export default async function Page({
 
   if (!post) return notFound();
 
-  return <PostBody>{post.body}</PostBody>;
+  return (
+    <div className="flex flex-col gap-8">
+      <PostHeader post={post} />
+      <PostBody>{post.body}</PostBody>
+      <PostFooter />
+    </div>
+  );
 }

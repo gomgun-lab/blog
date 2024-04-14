@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { NAV_ITEMS } from "@/constants/nav";
 
-export function Header() {
+export function Nav() {
   const pathname = usePathname();
 
   return (
-    <header>
+    <nav className="mb-4">
       <div className="flex gap-2">
         {NAV_ITEMS.map(({ link, name }) => (
           <Link
@@ -26,6 +26,6 @@ export function Header() {
           </Link>
         ))}
       </div>
-    </header>
+    </nav>
   );
 }
