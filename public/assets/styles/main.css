@@ -1,0 +1,206 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-border: #e5e5e5;
+  --color-link: #0066cc;
+  --color-code-bg: #f0f0f0;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --max-width: 768px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  padding: 1.5rem 0;
+}
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Post List */
+.post-list {
+  padding: 2rem 0;
+}
+
+.post-card {
+  display: block;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-card:first-child {
+  padding-top: 0;
+}
+
+.post-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-card time {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.post-card p {
+  margin-top: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+/* Post */
+.post {
+  padding: 2rem 0;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-header h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.post-header time {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Post Content */
+.post-content h2 {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+}
+
+.post-content h3 {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content a {
+  color: var(--color-link);
+}
+
+.post-content pre {
+  overflow-x: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.post-content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.post-content p code {
+  background: var(--color-code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--color-border);
+  padding-left: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+.site-footer {
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Dark Mode: OS 설정 자동 감지 (명시적 light 오버라이드가 없을 때) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #121212;
+    --color-text: #e0e0e0;
+    --color-text-secondary: #a0a0a0;
+    --color-border: #333333;
+    --color-link: #6db3f2;
+    --color-code-bg: #2a2a2a;
+  }
+}
+
+/* Dark Mode: 명시적 dark 오버라이드 */
+:root[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-text: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-border: #333333;
+  --color-link: #6db3f2;
+  --color-code-bg: #2a2a2a;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+  font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .post-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}

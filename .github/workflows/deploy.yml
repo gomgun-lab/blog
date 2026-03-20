@@ -1,0 +1,26 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and deploy
+        run: |
+          docker compose down
+          docker compose up -d --build
+
+      - name: Cleanup old images
+        run: docker image prune -f
+
+      - name: Cleanup workspace
+        if: always()
+        run: rm -rf $GITHUB_WORKSPACE/*

@@ -1,0 +1,20 @@
+:80 {
+    root * /srv
+    file_server
+    encode gzip
+    try_files {path} {path}/ /404.html
+
+    @static path /styles/* /static/*
+    header @static Cache-Control "public, max-age=604800"
+}
+
+# 도메인 연결 시 위 블록을 주석 처리하고 아래를 활성화
+# gomgun.dev {
+#     root * /srv
+#     file_server
+#     encode gzip
+#     try_files {path} {path}/ /404.html
+#
+#     @static path /styles/* /static/*
+#     header @static Cache-Control "public, max-age=604800"
+# }
