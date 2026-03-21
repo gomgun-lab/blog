@@ -5,11 +5,6 @@ const require = createRequire(import.meta.url);
 const ROOT = path.resolve(import.meta.dirname, "..");
 
 export const config = {
-  site: {
-    name: "gomgun blog",
-    description: "gomgun blog",
-    lang: "ko",
-  },
   paths: {
     app: path.join(ROOT, "src/app"),
     dist: path.join(ROOT, "dist"),

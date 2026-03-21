@@ -16,8 +16,8 @@ const marked = new Marked({
   },
 });
 
-export function markdownToHtml(markdown: string) {
-  return marked.parse(markdown, { async: false });
+export function markdownToHtml(markdown: string): string {
+  return marked.parse(markdown, { async: false }) as string;
 }
 
 export function parsePost(filePath: string): Post {

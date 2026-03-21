@@ -2,6 +2,7 @@ import { discoverMarkdownFiles } from "./routes.js";
 import { parsePost } from "./markdown.js";
 import type { Post } from "../types.js";
 
+/** Parsed once per build and reused across page modules */
 let cached: Post[] | null = null;
 
 export function getAllPosts(): Post[] {
