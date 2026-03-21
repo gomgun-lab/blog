@@ -2,7 +2,7 @@
     root * /srv
     file_server
     encode gzip
-    try_files {path} {path}/ /404.html
+    try_files {path} {path}/ /404/index.html
 
     @static path /styles/* /static/*
     header @static Cache-Control "public, max-age=604800"
@@ -13,7 +13,7 @@
 #     root * /srv
 #     file_server
 #     encode gzip
-#     try_files {path} {path}/ /404.html
+#     try_files {path} {path}/ /404/index.html
 #
 #     @static path /styles/* /static/*
 #     header @static Cache-Control "public, max-age=604800"
