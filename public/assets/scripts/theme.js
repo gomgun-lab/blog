@@ -1,41 +1,36 @@
 (function () {
-  var saved = localStorage.getItem("theme");
-  if (saved) document.documentElement.setAttribute("data-theme", saved);
+  const STORAGE_KEY = "theme";
 
-  var btn = document.querySelector(".theme-toggle");
-  var hljsLight = document.getElementById("hljs-light");
-  var hljsDark = document.getElementById("hljs-dark");
-  if (!btn) return;
-
-  function getEffectiveTheme() {
-    var explicit = document.documentElement.getAttribute("data-theme");
-    if (explicit) return explicit;
+  function getPreferredTheme() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) return stored;
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
   }
 
-  function updateHljs() {
-    var isDark = getEffectiveTheme() === "dark";
-    if (hljsLight) hljsLight.media = isDark ? "not all" : "all";
-    if (hljsDark) hljsDark.media = isDark ? "all" : "not all";
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(STORAGE_KEY, theme);
   }
 
-  function updateLabel() {
-    btn.textContent = getEffectiveTheme() === "dark" ? "Light" : "Dark";
+  applyTheme(getPreferredTheme());
+
+  function updateToggleText(toggle) {
+    const current = document.documentElement.getAttribute("data-theme");
+    toggle.textContent = current === "dark" ? "Light" : "Dark";
   }
 
-  function update() {
-    updateLabel();
-    updateHljs();
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".theme-toggle");
+    if (!toggle) return;
 
-  btn.addEventListener("click", function () {
-    var next = getEffectiveTheme() === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    update();
+    updateToggleText(toggle);
+
+    toggle.addEventListener("click", function () {
+      const current = document.documentElement.getAttribute("data-theme");
+      applyTheme(current === "dark" ? "light" : "dark");
+      updateToggleText(toggle);
+    });
   });
-
-  update();
 })();
