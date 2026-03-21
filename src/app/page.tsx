@@ -11,7 +11,7 @@ export const getPages: PageModule["getPages"] = () => {
     {
       slug: "",
       element: (
-        <Layout title="Home" description={config.site.description}>
+        <Layout title="Home" description={config.site.description} activePage="home">
           <IndexPage posts={posts} />
         </Layout>
       ),

@@ -1,14 +1,17 @@
-import { config } from "../config.js";
+interface HeaderProps {
+  activePage?: "home" | "posts";
+}
 
-export function Header() {
+export function Header({ activePage }: HeaderProps) {
   return (
-    <header className="site-header">
-      <nav className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <a href="/" className="site-title">
-          {config.site.name}
-        </a>
-        <button className="theme-toggle" type="button" aria-label="Toggle dark mode" />
-      </nav>
+    <header className="header">
+      <div className="container">
+        <a href="/" className="header__logo">Gomgun</a>
+        <nav className="header__nav">
+          <a href="/" className={`header__link${activePage === "home" ? " header__link--active" : ""}`}>Home</a>
+          <a href="/posts/" className={`header__link${activePage === "posts" ? " header__link--active" : ""}`}>Posts</a>
+        </nav>
+      </div>
     </header>
   );
 }

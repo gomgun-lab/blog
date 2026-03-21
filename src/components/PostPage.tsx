@@ -4,17 +4,22 @@ interface PostPageProps {
   post: Post;
 }
 
+function formatDate(date: string): string {
+  return date.replace(/-/g, ".");
+}
+
 export function PostPage({ post }: PostPageProps) {
   return (
-    <article className="post">
-      <header className="post-header">
-        <h1>{post.title}</h1>
-        <time dateTime={post.date}>{post.date}</time>
-      </header>
+    <article className="article">
+      <div className="article__header">
+        <time className="article__date">{formatDate(post.date)}</time>
+        <h1 className="article__title">{post.title}</h1>
+      </div>
       <div
-        className="post-content"
+        className="prose"
         dangerouslySetInnerHTML={{ __html: post.htmlContent }}
       />
+      <a href="/posts/" className="article__back">목록으로</a>
     </article>
   );
 }

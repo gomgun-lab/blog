@@ -6,10 +6,11 @@ import { Footer } from "./Footer.js";
 interface LayoutProps {
   title: string;
   description: string;
+  activePage?: "home" | "posts";
   children: ReactNode;
 }
 
-export function Layout({ title, description, children }: LayoutProps) {
+export function Layout({ title, description, activePage, children }: LayoutProps) {
   return (
     <html lang={config.site.lang}>
       <head>
@@ -18,14 +19,16 @@ export function Layout({ title, description, children }: LayoutProps) {
         <title>{`${title} | ${config.site.name}`}</title>
         <meta name="description" content={description} />
         <link rel="stylesheet" href="/assets/styles/main.css" />
-        <link rel="stylesheet" href="/assets/styles/hljs-light.css" id="hljs-light" />
-        <link rel="stylesheet" href="/assets/styles/hljs-dark.css" id="hljs-dark" media="(prefers-color-scheme: dark)" />
+        <script src="/assets/scripts/theme.js" />
       </head>
       <body>
-        <Header />
-        <main className="container">{children}</main>
+        <Header activePage={activePage} />
+        <main className="main">
+          <div className="container">
+            {children}
+          </div>
+        </main>
         <Footer />
-        <script src="/assets/scripts/theme.js" defer />
       </body>
     </html>
   );
