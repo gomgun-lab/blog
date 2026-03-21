@@ -12,6 +12,12 @@
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(STORAGE_KEY, theme);
+
+    var hljsLight = document.getElementById("hljs-light");
+    var hljsDark = document.getElementById("hljs-dark");
+    var isDark = theme === "dark";
+    if (hljsLight) hljsLight.media = isDark ? "not all" : "all";
+    if (hljsDark) hljsDark.media = isDark ? "all" : "not all";
   }
 
   applyTheme(getPreferredTheme());

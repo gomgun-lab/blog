@@ -1,0 +1,20 @@
+/* ===== Not Found ===== */
+.not-found {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.not-found__title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.not-found__desc {
+  color: var(--text-secondary);
+}
+
+.not-found__link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
