@@ -23,4 +23,4 @@ jobs:
 
       - name: Cleanup workspace
         if: always()
-        run: rm -rf $GITHUB_WORKSPACE/*
+        run: rm -rf "${GITHUB_WORKSPACE:?}"/*
