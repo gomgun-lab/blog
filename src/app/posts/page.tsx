@@ -11,7 +11,7 @@ export const getPages: PageModule["getPages"] = () => {
     {
       slug: "",
       element: (
-        <Layout title="Posts" description={site.description} activePage="posts">
+        <Layout title="Posts" description={site.description} activePage="posts" stylesheets={["/assets/styles/post-list.css"]}>
           <ul className="post-list">
             {posts.map((post) => (
               <li key={post.slug} className="post-item">

@@ -42,7 +42,7 @@
 }
 
 .prose code {
-  font-family: inherit;
+  font-family: var(--font-mono);
   font-size: 0.85em;
   font-weight: 700;
   background: var(--code-bg);
@@ -63,7 +63,7 @@
   display: block;
   background: none;
   padding: 0.75rem;
-  font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.3;

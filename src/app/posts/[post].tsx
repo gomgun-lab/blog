@@ -9,7 +9,7 @@ export const getPages: PageModule["getPages"] = () => {
   return posts.map((post) => ({
     slug: post.slug,
     element: (
-      <Layout title={post.title} description={post.description} stylesheets={["/assets/styles/prose.css"]}>
+      <Layout title={post.title} description={post.description} stylesheets={["/assets/styles/article.css", "/assets/styles/prose.css"]}>
         <article className="article">
           <div className="article__header">
             <time className="article__date">{formatDate(post.date)}</time>

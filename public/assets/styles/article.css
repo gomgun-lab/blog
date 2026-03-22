@@ -1,0 +1,48 @@
+/* ===== Post Detail (Article) ===== */
+.article__back {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.article__back::before {
+  content: "\2190 ";
+}
+
+.article__back:hover {
+  color: var(--text);
+}
+
+.article__header {
+  margin-bottom: 1.25rem;
+}
+
+.article__date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.article__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .article__back {
+    margin-top: 1rem;
+  }
+
+  .article__header {
+    margin-bottom: 1rem;
+  }
+
+  .article__title {
+    font-size: 1.25rem;
+  }
+}
