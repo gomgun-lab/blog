@@ -14,7 +14,9 @@ export function writeHtml(slug: string, html: string) {
 }
 
 export function copyPublic() {
-  fs.cpSync(config.paths.public, config.paths.dist, { recursive: true });
+  if (fs.existsSync(config.paths.public)) {
+    fs.cpSync(config.paths.public, config.paths.dist, { recursive: true });
+  }
 }
 
 export function copyVendorAssets() {
